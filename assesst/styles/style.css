@@ -1,0 +1,29 @@
+/* colors */
+:root {
+  --bg-grad-pink: #FF2A8A;
+  --bg-grad-magenta: #D41FD4;
+  --bg-grad-purple: #6A00F4;
+  --bg-grad-blue: #4A4DFF;
+
+  --bg-player: #2B0A3D;
+  --bg-playlist: #24032E;
+
+  --accent-pink: #FF4CA6;
+  --accent-pink-light: #FF61C3;
+  --accent-purple: #8B2C8E;
+
+  --album-blue: #546CFF;
+  --album-pink: #FF4CA6;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #F3B5FF;
+  --text-muted: #D686F7;
+
+  --icon-main: #FFFFFF;
+  --icon-secondary: #F576FF;
+  --icon-muted: #BF6DCB;
+
+  --line-divider: #53285E;
+
+  --shadow-soft: rgba(0, 0, 0, 0.25);
+}
