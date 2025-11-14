@@ -27,3 +27,17 @@
 
   --shadow-soft: rgba(0, 0, 0, 0.25);
 }
+
+/* Fonts */
+@font-face {
+  font-family: bold;
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: medium;
+  src: url(../fonts/Roboto-Medium.ttf);
+}
+@font-face {
+  font-family: regular;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
