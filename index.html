@@ -10,6 +10,78 @@
     <title>Music Player</title>
 </head>
 <body>
-    
+    <div class="main-container">
+        <!-- main music container -->
+        <div class="music-container">
+            <div class="music-info-container">
+
+                <div class="poster-container">
+                    <img class="poster" src="" alt="poster">
+                </div>
+
+                <div class="music-name-container">
+                    <span class="music-name"></span>
+                    <span class="artist-name"></span>
+                </div>
+
+                <!-- seek bar -->
+                <div class="seek-bar-container">
+                    <input type="range" id="music-seekbar" min="0" max="100" value="0" step="1">
+                    <span class="music-timer"></span>
+                </div>
+
+                <div class="control-container">
+
+                    <button class="repeat-btn">
+                        <i class="fa-solid fa-repeat"></i>
+                    </button>
+        
+                    <button class="previous-btn">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+        
+                    <button class="play-btn">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+        
+                    <button  class="next-btn">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+        
+                    <button class="shuffle-btn">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- playlist container -->
+         <div class="playlst-container">
+            <div class="playlist-title">
+                <span class="title">playlist</span>
+                <span class="more-btn">..</span>
+            </div>
+            <div class="playlist-songs">
+                <div class="song-queue">
+                    <span class="song-name"></span>
+                    <span class="song-artist"></span>
+                </div>
+            </div>
+            <div class="plsylist-footer">
+                <button>
+                    <i class="fa-solid fa-heart"></i>
+                </button>
+                <input type="range" id="volume-seekbar" min="0" max="100" value="0">
+                <button>
+                    <i class="fa-solid fa-volume-high"></i>
+                    <i class="fa-solid fa-volume-xmark"></i>
+                </button>
+            </div>
+         </div>
+    </div>
+    <script src="https://kit.fontawesome.com/867ed0792a.js" crossorigin="anonymous"></script>
+    <script src="assesst/scripts/script.js"></script>
+    <script src="assesst/scripts/music.js"></script>
 </body>
 </html>
