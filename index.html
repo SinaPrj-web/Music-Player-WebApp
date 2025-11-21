@@ -76,19 +76,20 @@
                 </div>
             </div>
             <div class="plsylist-footer">
-                <button>
-                    <i class="fa-solid fa-heart"></i>
+                <button class="heart-icon-container">
+                    <i id="heart-icon" class="fa-solid fa-heart"></i>
                 </button>
                 <input type="range" id="volume-seekbar" min="0" max="100" value="0">
-                <button>
-                    <i class="fa-solid fa-volume-high"></i>
-                    <i class="fa-solid fa-volume-xmark"></i>
+                <button class="volume-container">
+                    <i id="volume-high" class="fa-solid fa-volume-high"></i>
+                    <i id="volume-mute" class="fa-solid fa-volume-xmark"></i>
                 </button>
             </div>
          </div>
     </div>
+    <audio id="audio"></audio>
     <script src="https://kit.fontawesome.com/867ed0792a.js" crossorigin="anonymous"></script>
-    <script src="assesst/scripts/script.js"></script>
-    <script src="assesst/scripts/music.js"></script>
+    <script type="module" src="assesst/scripts/script.js"></script>
+    <script type="module" src="assesst/scripts/music.js"></script>
 </body>
 </html>
