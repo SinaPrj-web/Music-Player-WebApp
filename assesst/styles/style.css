@@ -118,6 +118,7 @@
   font-size: 3rem;
   font-family: medium;
   text-transform: capitalize;
+  font-family: 'bold';
 }
 .artist-name{
   width: 100%;
@@ -203,6 +204,13 @@ input[type="range"]::-moz-range-thumb{
     align-items: center;
     justify-content: center;
 }
+/* for JS switch */
+.play-btn.is-playing #play-btn{
+  display: none;
+}
+.play-btn.is-playing #pause-btn{
+  display: inline-block;
+}
 #play-btn{
     background-color: var(--icon-secondary);
     padding: 1rem;
@@ -230,28 +238,81 @@ input[type="range"]::-moz-range-thumb{
   font-size: 1.2rem;
 }
 .playlst-container{
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 60%;
+    min-width: 27%;
+    background-color: var(--bg-playlist);
+    padding: 2rem;
+    color: #fff;
+    border-radius: 25px;
 }
 .playlist-title{
-
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.playlist-title::after{
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: var(--line-divider);
+  bottom: -20px;
+  position: absolute;
+  border-radius: 999px;
 }
 .title{
-
+  font-family: 'medium';
+  font-size: 1.5rem;
+  text-transform: capitalize;
 }
-.more-btn{
-
+.dots{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  background-color: var(--line-divider);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.dot{
+  width: 4px;
+  height: 4px;
+  background: var(--accent-pink-light);
+  border-radius: 50%;
 }
 .playlist-songs{
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin: 1.6rem 0;
 }
 .song-queue{
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.4rem;
 }
 .song-name{
-
+  font-family: 'medium';
+  font-size: 1.3rem;
+  text-transform: capitalize;
 }
 .song-artist{
-
+  opacity: 0.8;
+  font-family: regular;
+  text-transform: capitalize;
 }
 .plsylist-footer{
 
