@@ -315,5 +315,54 @@ input[type="range"]::-moz-range-thumb{
   text-transform: capitalize;
 }
 .plsylist-footer{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 1.2rem;
+}
+.heart-icon-container{
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+#heart-icon{
+  background-color: var(--line-divider);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-main);
+  padding: 0.4rem;
+  cursor: pointer;
+}
+#volume-seekbar{
 
+}
+.volume-container{
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+#volume-high{
+background-color: var(--line-divider);
+border-radius: 999px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--accent-pink-light);
+padding: 0.4rem;
+cursor: pointer;
+}
+#volume-mute{
+  display: none;
+  background-color: var(--line-divider);
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-pink-light);
+  padding: 0.4rem;
+  cursor: pointer;
 }
