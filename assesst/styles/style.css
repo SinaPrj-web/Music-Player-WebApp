@@ -81,6 +81,7 @@
   box-shadow: 
   0 0 40px rgba(0, 0, 0, 0.4),
   0 0 30px rgba(255, 42, 138, 0.15);
+  width: 100%;
 }
 .music-container{
   display: flex;
@@ -88,46 +89,70 @@
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
+  min-width: 0; 
 }
 .music-info-container{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem;
+  width: 100%; 
+  min-width: 0;
 }
 .poster-container{
-  max-width: 15rem;
-  max-height: 15rem;
+  width: 15rem;
+  height: 15rem;
   border-radius: 30px;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 .poster{
   width: 100%;
   height: 100%;
-  overflow: hidden;
   border-radius: inherit;
+  display: block;
+  object-fit: cover;
 }
 .music-name-container{
-  display: flex;
+    display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    flex: 1;
 }
 .music-name{
-  width: 100%;
+  max-width: 100%;
   color: var(--text-primary);
   font-size: 3rem;
   font-family: medium;
   text-transform: capitalize;
   font-family: 'bold';
+  display: block;
+  max-width: 100%;          /* same width, no resize */
+  white-space: nowrap;      /* don't wrap to next line */
+  overflow: hidden;         /* hide extra text */
+  text-overflow: ellipsis;
+}
+.music-name.scroll {
+  overflow: visible;
+  text-overflow: clip;
+  animation: scrollText 8s linear infinite;
 }
 .artist-name{
-  width: 100%;
+  max-width: 100%;
   margin-top: 0.7rem;
   color: var(--text-secondary);
   opacity: 0.8;
   font-family: regular;
   text-transform: capitalize;
   font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .seek-bar-container{
   width: 100%;
@@ -221,10 +246,16 @@ input[type="range"]::-moz-range-thumb{
     align-items: center;
     justify-content: center;
 }
-#pause-btn {
-  position: absolute;
-  display: none;
-}
+/* #pause-btn {
+  background-color: var(--icon-secondary);
+    padding: 1rem;
+    border-radius: 999px;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+} */
 .next-btn{
   color: var(--icon-main);
   font-size: 2.5rem;
@@ -365,4 +396,15 @@ cursor: pointer;
   color: var(--accent-pink-light);
   padding: 0.4rem;
   cursor: pointer;
+}
+
+/* animation  */
+.scroll {
+  animation: scrollText 8s linear infinite;
+}
+
+@keyframes scrollText{
+  0% {transform: translateX(0);}
+  50%{transform: translateX(-60%);}
+  100%{transform: translateX(0);}
 }
