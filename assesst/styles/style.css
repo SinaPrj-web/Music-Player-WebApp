@@ -334,6 +334,7 @@ input[type="range"]::-moz-range-thumb{
   justify-content: center;
   align-items: flex-start;
   gap: 0.4rem;
+  cursor: pointer;
 }
 .song-name{
   font-family: 'medium';
@@ -407,4 +408,11 @@ cursor: pointer;
   0% {transform: translateX(0);}
   50%{transform: translateX(-60%);}
   100%{transform: translateX(0);}
+}
+
+.song-queue.active {
+  background: rgba(161, 12, 87, 0.22);
+  box-shadow: 0 0 10px rgba(255, 76, 166, 0.4);
+  width: 100%;
+  padding: 10px;
 }

@@ -9,20 +9,22 @@ const nextBtn = $.querySelector('#next-song')
 const prevBtn = $.querySelector('#prev-song')
 const songPoster = $.querySelector('#song-poster')
 const playToggle = $.querySelector('.play-btn')
+const playListContainer = $.querySelector('.playlist-songs')
 
 
 let currentIndex = 0
-let isPlaying = false 
 
 
 // load song
 function loadSongs (index) {
+    currentIndex =index
     audio.src = songs[index].src
     musicName.textContent = songs[index].title
     artistName.textContent = songs[index].artist
     songPoster.src = songs[index].poster
-    audio.load
+    audio.load()
     checkTitleOverflow()
+    updateActivePlaylistItem()
 }
 
 // nextBtn function
@@ -32,17 +34,15 @@ function nextSongBtn () {
     loadSongs(currentIndex)
     audio.play();
     checkTitleOverflow()
-    updateIcon()
 
 }
 // prev function
 function prevSong () {
     currentIndex --
-    if (currentIndex < 0)currentIndex = songs.length - 1
+    if (currentIndex < 0) currentIndex = songs.length - 1
     loadSongs(currentIndex)
     audio.play();
     checkTitleOverflow()
-    updateIcon()
 }
 
 // titleOverflow function
@@ -58,47 +58,70 @@ function checkTitleOverflow () {
     }
 }
 
-// play toggle btn function 
-playToggle.addEventListener('click' , function () {
-    if(!isPlaying){
-        audio.play();
-        isPlaying = true;
-        playToggle.innerHTML = '<i id="play-btn" class="fa-solid fa-pause"></i>'
+function updateICon () {
+    if(audio.paused){
+        playBtn.className = 'fa-solid fa-play'
     } else {
-        audio.pause();
-        isPlaying = false;
-        playToggle.innerHTML = '<i id="play-btn" class="fa-solid fa-play"></i>'
-    }
-})
-
-
-// update play button function
-function updateIcon () {
-    if(isPlaying) {
-        playBtn.className = 'fa fa-pause'
-
-    } else {
-        playBtn.className = 'fa fa-play'
+        playBtn.className = 'fa-solid fa-pause'
     }
 
 }
 
-audio.addEventListener('play' , ()=> {
-    isPlaying = true;
-    updateIcon()
+
+playToggle.addEventListener('click' ,()=> {
+    if(audio.paused) {
+        audio.play()
+    } else {
+        audio.pause()
+    }
 })
 
-audio.addEventListener('pause' , ()=> {
-    isPlaying = false;
-    updateIcon()
+
+// render playlistfunction
+function renderPlyList () {
+    playListContainer.innerHTML = '';
+
+    songs.forEach((song , index)=> {
+        const item = $.createElement('div')
+        item.classList.add('song-queue')
+        item.dataset.index = index;
+
+        item.innerHTML = `
+        <span class="song-name">${song.title}</span>
+        <span class="song-artist">${song.artist}</span>
+        `
+        playListContainer.appendChild(item)
+    })
+}
+
+
+// playlist songhighlight 
+function updateActivePlaylistItem() {
+    const item = playListContainer.querySelectorAll('.song-queue')
+
+    item.forEach(item => {
+        const idx = Number(item.dataset.index)
+        if (idx === currentIndex){
+            item.classList.add('active')
+        } else {
+            item.classList.remove('active')
+        }
+    })
+}
+
+
+playListContainer.addEventListener('click' ,  (e)=> {
+    const item = e.target.closest('.song-queue')
+    if (!item) return
+
+    const index = Number(item.dataset.index)
+    loadSongs(index)
+    audio.play()
 })
-
-playBtn.addEventListener('click' , function () {
-    audio.play().catch(err => console.error('play error' , err))
-
-})
-
 
 nextBtn.addEventListener('click' , nextSongBtn)
 prevBtn.addEventListener('click' ,prevSong)
+audio.addEventListener('play' , updateICon)
+audio.addEventListener('pause', updateICon)
+renderPlyList()
 loadSongs(currentIndex)
