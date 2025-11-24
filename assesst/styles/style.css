@@ -156,9 +156,15 @@
 }
 .seek-bar-container{
   width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
 }
 .music-timer{
-  width: 100%;
+  color: var(--text-primary);
+  font-family: regular;
+  
 }
 input[type="range"] {
   width: 100%;

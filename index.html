@@ -26,8 +26,9 @@
             </div>
             <!-- seek bar -->
             <div class="seek-bar-container">
-                <input type="range" id="music-seekbar" min="0" max="100" value="0" step="1">
-                <span class="music-timer"></span>
+                <span class="music-timer" id="current-time">0:00</span>
+                <input type="range" id="music-seekbar" min="0" max="10000" value="0" step="1">
+                <span id="duration" class="music-timer">0:00</span>
             </div>
             <div class="control-container">
 
@@ -79,7 +80,7 @@
                 <button class="heart-icon-container">
                     <i id="heart-icon" class="fa-solid fa-heart"></i>
                 </button>
-                <input type="range" id="volume-seekbar" min="0" max="100" value="0">
+                <input type="range" id="volume-seekbar" min="0" max="10000" value="0">
                 <button class="volume-container">
                     <i id="volume-high" class="fa-solid fa-volume-high"></i>
                     <i id="volume-mute" class="fa-solid fa-volume-xmark"></i>

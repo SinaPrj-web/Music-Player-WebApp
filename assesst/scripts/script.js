@@ -10,6 +10,9 @@ const prevBtn = $.querySelector('#prev-song')
 const songPoster = $.querySelector('#song-poster')
 const playToggle = $.querySelector('.play-btn')
 const playListContainer = $.querySelector('.playlist-songs')
+const currentTimeEl = $.querySelector('#current-time')
+const durationEl = $.querySelector('#duration')
+const seekBar = $.querySelector('#music-seekbar')
 
 
 let currentIndex = 0
@@ -25,6 +28,13 @@ function loadSongs (index) {
     audio.load()
     checkTitleOverflow()
     updateActivePlaylistItem()
+
+    currentTimeEl.textContent = '0:00'
+    durationEl.textContent = '0:00'
+
+    audio.addEventListener('loadedmetadata' , ()=> {
+        durationEl.textContent = formatTimer(audio.duration)
+    } , {once: true} ) 
 }
 
 // nextBtn function
@@ -109,6 +119,34 @@ function updateActivePlaylistItem() {
     })
 }
 
+// seek bar 
+function formatTimer (seconds) {
+    if(isNaN(seconds)) return '0:00'
+
+    let mins = Math.floor(seconds / 60)
+    let secs = Math.floor(seconds % 60)
+
+    if(secs < 10 ) secs = '0' + secs
+    return `${mins}:${secs}`
+
+}
+
+
+audio.addEventListener('timeupdate' , ()=> {
+    if(!audio.duration) return;
+
+    const percent = (audio.currentTime / audio.duration) * 10000
+    seekBar.value = percent 
+    currentTimeEl.textContent = formatTimer(audio.currentTime)
+})
+
+seekBar.addEventListener('input' , ()=> {
+    if(!audio.duration) return;
+
+    const percent = seekBar.value
+    const newTime = (percent / 10000) * audio.duration;
+    audio.currentIndex = newTime
+})
 
 playListContainer.addEventListener('click' ,  (e)=> {
     const item = e.target.closest('.song-queue')
