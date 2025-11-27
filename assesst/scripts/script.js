@@ -149,9 +149,9 @@ audio.addEventListener('ended' , ()=> {
 seekBar.addEventListener('input' , ()=> {
     if(!audio.duration) return;
 
-    const percent = seekBar.value
-    const newTime = (percent / 10000) * audio.duration;
-    audio.currentIndex = newTime
+    const percent = seekBar.value / 10000;
+    const newTime = percent * audio.duration;
+    audio.currentTime = newTime
 })
 
 // volume seekBar 
