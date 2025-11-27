@@ -383,9 +383,15 @@ input[type="range"]::-moz-range-thumb{
   background: none;
   border: none;
   outline: none;
+  max-width: 1.9rem;
+  max-height: 1.9rem;
+  background-color: var(--line-divider);
+  border-radius: 999px;
+  width: 100%;
+  height: 100%;
 }
 #volume-high{
-background-color: var(--line-divider);
+/* background-color: var(--line-divider); */
 border-radius: 999px;
 display: flex;
 align-items: center;

@@ -13,6 +13,8 @@ const playListContainer = $.querySelector('.playlist-songs')
 const currentTimeEl = $.querySelector('#current-time')
 const durationEl = $.querySelector('#duration')
 const seekBar = $.querySelector('#music-seekbar')
+const volumeBar = $.querySelector('#volume-seekbar')
+const volumeIcon = $.querySelector('#volume-high')
 
 
 let currentIndex = 0
@@ -140,12 +142,50 @@ audio.addEventListener('timeupdate' , ()=> {
     currentTimeEl.textContent = formatTimer(audio.currentTime)
 })
 
+audio.addEventListener('ended' , ()=> {
+    nextSongBtn()
+})
+
 seekBar.addEventListener('input' , ()=> {
     if(!audio.duration) return;
 
     const percent = seekBar.value
     const newTime = (percent / 10000) * audio.duration;
     audio.currentIndex = newTime
+})
+
+// volume seekBar 
+audio.volume = volumeBar.value / 100
+
+
+volumeBar.addEventListener('input' , ()=> {
+    const volume = volumeBar.value / 100
+    audio.volume  = volume
+    updateVolumeIcon(volume)
+})
+
+function updateVolumeIcon (volume) {
+    if(volume === 0) {
+        volumeIcon.className = 'fa-solid fa-volume-xmark'
+    }
+    else if(volume < 0.5) {
+        volumeIcon.className = 'fa-solid fa-volume-low'
+    } else {
+        volumeIcon.className = 'fa-solid fa-volume-high'
+    }
+}
+
+volumeIcon.addEventListener('click' , ()=> {
+    if(audio.volume > 0) {
+        audio.volume = 0
+        volumeBar.value  = 0
+    }else {
+        audio.volume = 1
+        volumeBar.value = 100
+
+    }
+
+    updateVolumeIcon(audio.volume)
 })
 
 playListContainer.addEventListener('click' ,  (e)=> {
