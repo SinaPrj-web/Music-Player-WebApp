@@ -1,20 +1,22 @@
 let $ = document;
 import songs from "./music.js";
 
-const audio = $.querySelector('#audio')
-const playBtn = $.querySelector('#play-btn')
-const musicName = $.querySelector('.music-name')
-const artistName = $.querySelector('.artist-name')
-const nextBtn = $.querySelector('#next-song')
-const prevBtn = $.querySelector('#prev-song')
-const songPoster = $.querySelector('#song-poster')
-const playToggle = $.querySelector('.play-btn')
-const playListContainer = $.querySelector('.playlist-songs')
-const currentTimeEl = $.querySelector('#current-time')
-const durationEl = $.querySelector('#duration')
-const seekBar = $.querySelector('#music-seekbar')
-const volumeBar = $.querySelector('#volume-seekbar')
-const volumeIcon = $.querySelector('#volume-high')
+const audio = $.querySelector('#audio');
+const playBtn = $.querySelector('#play-btn');
+const musicName = $.querySelector('.music-name');
+const artistName = $.querySelector('.artist-name');
+const nextBtn = $.querySelector('#next-song');
+const prevBtn = $.querySelector('#prev-song');
+const songPoster = $.querySelector('#song-poster');
+const playToggle = $.querySelector('.play-btn');
+const playListContainer = $.querySelector('.playlist-songs');
+const currentTimeEl = $.querySelector('#current-time');
+const durationEl = $.querySelector('#duration');
+const seekBar = $.querySelector('#music-seekbar');
+const volumeBar = $.querySelector('#volume-seekbar');
+const volumeIcon = $.querySelector('#volume-high');
+const favBtn = $.querySelector('#heart-icon');
+let faviourts = JSON.parse(localStorage.getItem('faviourts')) || [];
 
 
 let currentIndex = 0
@@ -30,6 +32,7 @@ function loadSongs (index) {
     audio.load()
     checkTitleOverflow()
     updateActivePlaylistItem()
+    updateHeart()
 
     currentTimeEl.textContent = '0:00'
     durationEl.textContent = '0:00'
@@ -195,6 +198,29 @@ playListContainer.addEventListener('click' ,  (e)=> {
     const index = Number(item.dataset.index)
     loadSongs(index)
     audio.play()
+})
+
+
+// faviourts btn
+
+function updateHeart(){
+    if(faviourts.includes(currentIndex)) {
+        favBtn.className = 'fa-solid fa-heart'
+        favBtn.style.color = 'red'
+    } else{
+        favBtn.className = 'fa-regular fa-heart'
+        favBtn.style.color = 'white'
+    }
+}
+
+favBtn.addEventListener('click' , ()=> {
+    if(faviourts.includes(currentIndex)){
+        faviourts = faviourts.filter(item => item !== currentIndex)
+    } else {
+        faviourts.push(currentIndex)
+    }
+    localStorage.setItem('faviourts', JSON.stringify(faviourts))
+    updateHeart()
 })
 
 nextBtn.addEventListener('click' , nextSongBtn)
