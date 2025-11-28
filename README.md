@@ -26,4 +26,4 @@ This project is focused on practicing:
 ---
 
 ## 🎨 UI Preview
-![Music Player Preview](player-preview.png)
+![Music Player Preview](assesst/images/player-preview.png)
