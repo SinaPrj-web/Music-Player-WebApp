@@ -2,28 +2,82 @@
 
 A modern and clean **Music Player Web App** built with pure **HTML, CSS, and JavaScript**.
 
-This project is focused on practicing:
+This project focuses on improving:
 - DOM Manipulation
-- Audio API
-- UI Animations
+- Audio API usage
+- UI interaction
 - State management with LocalStorage
-- Frontend logic only (no frameworks)
+- JavaScript logic
+
+---
+
+## 🌐 Live Demo
+
+👉 GitHub Pages:  
+https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/
 
 ---
 
 ## 🚀 Features
 
-✅ Play / Pause music  
-✅ Next / Previous song  
-✅ Seek bar (drag to change time)  
-✅ Live current time & duration display  
-✅ Volume control with dynamic icon  
-✅ Playlist with active song highlight  
-✅ Auto play next song when current ends  
-✅ Scrollable long song names (Spotify style)  
-✅ Favorite system with ❤️ button (persistent using localStorage)  
+- Play / Pause music  
+- Next / Previous track  
+- Seek bar with smooth dragging  
+- Live current time & total duration  
+- Volume control with dynamic icon  
+- Playlist with active highlighting  
+- Auto play next song  
+- Long title scrolling like Spotify  
+- Favorite ❤️ system saved in LocalStorage  
 
 ---
 
-## 🎨 UI Preview
-![Music Player Preview](assesst/images/player-preview.png)
+## 🎨 Screenshot
+
+![Music Player Preview](assets/screenshots/player-preview.png)
+
+---
+
+## 🛠 Tech Stack
+
+- HTML5  
+- CSS3  
+- Vanilla JavaScript  
+- Font Awesome  
+
+---
+
+## 📂 Folder Structure
+
+```
+Music-Player/
+│
+├── index.html
+├── script.js
+├── music.js
+├── style.css
+│
+├── assets/
+│   ├── images/
+│   └── songs/
+```
+
+---
+
+## ▶ How to Run
+
+1. Download or Clone this repo  
+2. Open project in VS Code  
+3. Run `index.html` with Live Server  
+4. Enjoy 🎧  
+
+---
+
+## 👤 Author
+
+Sina  
+GitHub: https://github.com/SinaPrj-web  
+
+---
+
+⭐ If you like this project, give it a star!
