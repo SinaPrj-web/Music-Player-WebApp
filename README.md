@@ -14,7 +14,7 @@ This project focuses on improving:
 ## 🌐 Live Demo
 
 👉 GitHub Pages:  
-https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/
+[https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/](https://sinaprj-web.github.io/Music-Player-WebApp/)
 
 ---
 
