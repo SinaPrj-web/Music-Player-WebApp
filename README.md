@@ -27,7 +27,6 @@ This project is focused on practicing:
 
 ## 🎨 UI Preview
 
-(You can add screenshots later like this)
 
 ```md
 ![Music Player Preview](assets/screenshots/player-preview.png)
@@ -42,18 +41,6 @@ Vanilla JavaScript
 LocalStorage
 
 Font Awesome (Icons)
-
-📂 Project Structure
-Music-Player/
-│
-├── index.html
-├── script.js
-├── music.js
-├── style.css
-│
-├── assets/
-│   ├── images/
-│   └── songs/
 
 💾 How To Run
 
