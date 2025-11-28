@@ -34,7 +34,7 @@ https://sinaprj-web.github.io/Music-Player-WebApp/
 
 ## 🎨 Screenshot
 
-![Music Player Preview](assets/screenshots/player-preview.png)
+![Music Player Preview](assesst/images/player-preview.png)
 
 ---
 
